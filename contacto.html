@@ -42,7 +42,8 @@
     </nav>
   </header>
   <main>
-    <form action="mailto:tuemail@ejemplo.com" method="POST" enctype="text/plain">
+    <form id="contactForm" action="mailto:tuemail@ejemplo.com" method="POST" enctype="text/plain"
+      onsubmit="return validateForm()">
       <label for="nombre">Nombre:</label>
       <input type="text" name="nombre" id="nombre" required>
 
@@ -52,8 +53,57 @@
       <label for="mensaje">Mensaje:</label>
       <textarea name="mensaje" id="mensaje" required></textarea>
 
+      <!-- Protección contra bots -->
+      <label for="verificacion">¿Cuánto es 3 + 5?</label>
+      <input type="text" id="verificacion" name="verificacion" required>
+
       <button type="submit">Enviar</button>
     </form>
+
+    <script>
+      function validateForm() {
+        const nombre = document.getElementById("nombre").value.trim();
+        const correo = document.getElementById("correo").value.trim();
+        const mensaje = document.getElementById("mensaje").value.trim();
+        const verificacion = document.getElementById("verificacion").value.trim();
+
+        const emailRegex = /^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/;
+        const nombreRegex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\\s]{2,}$/;
+
+        // Validar nombre
+        if (!nombreRegex.test(nombre)) {
+          alert("Por favor ingresa un nombre válido (solo letras y espacios).");
+          return false;
+        }
+
+        // Validar correo
+        if (!emailRegex.test(correo)) {
+          alert("Por favor ingresa un correo electrónico válido.");
+          return false;
+        }
+
+        // Validar mensaje vacío
+        if (mensaje.length < 10) {
+          alert("El mensaje debe tener al menos 10 caracteres.");
+          return false;
+        }
+
+        // Verificación anti-bots
+        if (verificacion !== "8") {
+          alert("Verificación incorrecta. Responde correctamente la pregunta.");
+          return false;
+        }
+
+        // Sanitizar campos (básico)
+        if (nombre.includes("<") || mensaje.includes("<") || correo.includes("<")) {
+          alert("Los campos contienen caracteres no permitidos.");
+          return false;
+        }
+
+        return true; // todo válido
+      }
+    </script>
+
   </main>
 </body>
 
