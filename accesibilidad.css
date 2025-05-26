@@ -1,0 +1,52 @@
+
+:root {
+    font-size: 16px;
+    --font-family: 'Arial';
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --cursor: default;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    cursor: var(--cursor);
+    transition: all 0.3s ease;
+}
+
+.accessibility-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.high-contrast {
+    background: #000 !important;
+    color: #ff0 !important;
+}
+
+.dark-mode {
+    background: #222;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-images img {
+    display: none !important;
+}
+
+.highlight-links a {
+    background-color: yellow;
+    color: #000 !important;
+    text-decoration: none !important;
+    pointer-events: none;
+}

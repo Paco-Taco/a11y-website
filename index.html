@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio - Proyecto ODS</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="accesibilidad.css">
+  <script src="accesibilidad.js" defer></script>
+</head>
+<body>
+  <div class="accessibility-menu">
+    <button onclick="toggleMenu()">☰ Accesibilidad</button>
+    <div id="menuOptions" class="hidden">
+      <button onclick="changeFontSize(1)">A+</button>
+      <button onclick="changeFontSize(-1)">A-</button>
+      <select onchange="changeFontFamily(this.value)">
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times</option>
+        <option value="Courier New">Courier</option>
+      </select>
+      <button onclick="toggleDarkMode()">Modo Oscuro</button>
+      <button onclick="toggleHighContrast()">Alto Contraste</button>
+      <select onchange="changeCursor(this.value)">
+        <option value="default">Cursor Normal</option>
+        <option value="pointer">Pointer</option>
+        <option value="zoom-in">Zoom</option>
+      </select>
+      <button onclick="toggleImages()">Ocultar Imágenes</button>
+      <button onclick="toggleLinks()">Resaltar Enlaces</button>
+    </div>
+  </div>
+  <header>
+    <h1>Bienvenido a mi sitio web</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="tema.html">Tema</a>
+      <a href="cv.html">CV</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Mi interés: ODS 4 - Educación de Calidad</h2>
+    <p>Este sitio tiene como objetivo difundir información relevante sobre la importancia de una educación inclusiva y equitativa.</p>
+  </main>
+</body>
+</html>
